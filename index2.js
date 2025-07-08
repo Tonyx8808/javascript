@@ -37,3 +37,12 @@ console.log("Fuori dal blocco, outside:", outside); // Output: 30
 for (let i = 0; i<=20; i += 2){
     console.log(i);
 }
+
+//ESERCIZIO 6
+
+let i = 9; //il primo numeri dispari sotto al 10
+
+while (i >=1){
+    console.log (i);
+    i-=2; //tolgo 2 per passare al primo numero dispari precedente
+}
