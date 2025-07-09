@@ -46,3 +46,26 @@ while (i >=1){
     console.log (i);
     i-=2; //tolgo 2 per passare al primo numero dispari precedente
 }
+
+//ESERCIZIO 7 E 8
+
+let word = prompt('inserisci una parola');
+console.log ('hai inserito', word.length); //INSERISCO .LENGTH
+
+//ESERCIZIO 9
+
+let parola;
+
+do{
+
+parola = prompt ('inserisci una parola di almeno 5 caratteri');
+
+}while (parola.length < 5);
+    
+console.log('hai inserito la parola', parola);
+
+//ESERCIZIO 10
+
+
+
+
