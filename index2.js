@@ -49,23 +49,29 @@ while (i >=1){
 
 //ESERCIZIO 7 E 8
 
-let word = prompt('inserisci una parola');
-console.log ('hai inserito', word.length); //INSERISCO .LENGTH
+//let word = prompt('inserisci una parola');
+//console.log ('hai inserito', word.length); //INSERISCO .LENGTH
 
 //ESERCIZIO 9
 
 let parola;
 
-do{
+//do{
 
-parola = prompt ('inserisci una parola di almeno 5 caratteri');
+//parola = prompt ('inserisci una parola di almeno 5 caratteri');
 
-}while (parola.length < 5);
+//}while (parola.length < 5);
     
-console.log('hai inserito la parola', parola);
+//console.log('hai inserito la parola', parola);
 
 //ESERCIZIO 10
 
+let num = 10;
+if (num > 5){
+    console.log("la variabile è maggiore di 5");
+}else{
+    console.log("la variabile è minore di 5");
+}
 
 
 
