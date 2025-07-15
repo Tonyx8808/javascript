@@ -75,17 +75,39 @@ if (num > 5){
 
 //ESERCIZIO 11
 
+//let score = parseInt(prompt("Inserisci il tuo punteggio:"));
+
+//if (score >= 90 && score <= 100) {
+    //console.log("voto ottimo");
+//} else if (score >= 70 && score <= 89) {
+   // console.log("voto buono");
+//} else if (score >= 60 && score <= 69) {
+    //console.log("voto sufficiente");
+//} else if (score <= 59) {
+   // console.log("voto insufficiente");
+//} else {
+   // console.log("Valore non valido");
+//50
+}
+
+//ESERCIZIO 12
+
 let score = parseInt(prompt("Inserisci il tuo punteggio:"));
 
-if (score >= 90 && score <= 100) {
-    console.log("voto ottimo");
-} else if (score >= 70 && score <= 89) {
-    console.log("voto buono");
-} else if (score >= 60 && score <= 69) {
-    console.log("voto sufficiente");
-} else if (score <= 59) {
-    console.log("voto insufficiente");
-} else {
-    console.log("Valore non valido");
+switch (true) {
+    case (score >= 90 && score <= 100):
+        console.log("voto ottimo");
+        break;
+    case (score >= 70 && score <= 89):
+        console.log("voto buono");
+        break;
+    case (score >= 60 && score <= 69):
+        console.log("voto sufficiente");
+        break;
+    case (score <= 59):
+        console.log("voto insufficiente");
+        break;
+    default:
+        console.log("Valore non valido");
 }
 
