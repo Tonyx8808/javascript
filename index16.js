@@ -1,23 +1,16 @@
-/*function colcolatore(valore1, valore2, ...altriValori) {
-console.log("valore1", valore1)
-console.log("valore2", valore2)
-console.log("altri valori", altriValori)
-}
-colcolatore(1,5,8,10);*/
+//Funzione che somma un numero variabile 
+function somma (...numeri){
+    return numeri.reduce((acc, curr) => acc + curr, 0);
+    }
 
-//destructuring array con rest operator
-
-/*let number = [3, 8, 10, 50, 100];
-
-let [valore1, valore2, ...altriValori] = number;
-
-console.log("valore1", valore1);
-console.log("valore2", valore2);
-console.log("altriValori", altriValori);*/
-
+console.log(somma(3, 10, 20));
+console.log(somma(7, 5));
+console.log(somma(15));
+console.log(somma()) 
+console.log(somma(3, 18, 20, 19,25, 17, 80));
 //destructuring oggetto con rest operator
 
-let person ={
+/*let person ={
     nome: "Antonio",
     età: 37,
     città: "Napoli",
@@ -30,4 +23,4 @@ let {nome, età, città, ...altriValori} = person;
 console.log("nome", nome);
 console.log("età", età);
 console.log("città", città);
-console.log("altriValori", altriValori);
+console.log("altriValori", altriValori);*/
