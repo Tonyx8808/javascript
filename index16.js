@@ -108,7 +108,7 @@ console.log(risultato);*/
 
 //UTILIZZARE IL CONSOLE.LOG
 
-const numero = 1;
+/*const numero = 1;
 const stringa = "HELLO WORD!";
 const ogetto = {
     nome: "Bob",
@@ -120,5 +120,17 @@ const array = ["Alice", "Bob", 30];
 console.log(numero);
 console.log(stringa);
 console.log(ogetto);
-console.log(array);
+console.log(array);*/
+
+//CONSOLE.ERROR & CONSOLE.WARN
+
+let miaVariabile = 2;
+
+if (miaVariabile === 5) {
+    console.error("ERRORE: la variabile ha il valore 5");
+} else if (miaVariabile === 2) {
+    console.warn("ATTENZIONE: la variabile ha il valore 2");
+} else {
+    console.log("INFORMAZIONE: la variabile ha un valore diverso da 2 e 5");
+}
 
