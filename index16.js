@@ -124,7 +124,7 @@ console.log(array);*/
 
 //CONSOLE.ERROR & CONSOLE.WARN
 
-let miaVariabile = 2;
+/*let miaVariabile = 2;
 
 if (miaVariabile === 5) {
     console.error("ERRORE: la variabile ha il valore 5");
@@ -132,5 +132,21 @@ if (miaVariabile === 5) {
     console.warn("ATTENZIONE: la variabile ha il valore 2");
 } else {
     console.log("INFORMAZIONE: la variabile ha un valore diverso da 2 e 5");
-}
+}*/
 
+//CONSOLE.TABLE & CONSOLE.GROUP
+
+const persone = [
+{nome:"Alice", cognome: "Rossi", età:"25"},
+{nome:"Bob", cognome: "Verdi", età:"39"},
+{nome:"Pippo", cognome: "Pallino", età:"18"}    
+]
+console.group("INFORMAZIONI SULLE PERSONE");
+
+console.table(persone);
+console.log("MESSAGGIO DEL GRUPPO");
+console.log("NUMERO DI PERSONE", persone.length);
+
+console.groupEnd();
+
+console.log("MESSAGGIO FUORI DAL GRUPPO");
