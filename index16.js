@@ -84,10 +84,41 @@ let città = "Napoli";
 
 // Creazione della stringa multilinea con template literals
 
-let descrizione = `informazioni personali:
+/*let descrizione = `informazioni personali:
 nome: ${nome}
 cognome:${cognome}
 età:${età} anni
 città:${città}
 `
-console.log(descrizione);
+console.log(descrizione);*/
+
+//FUNZIONE E TEMPLATE LITERALS
+
+/*function formattaPersona(persona){
+    return `Nome: ${persona.nome}, Cognome: ${persona.cognome}, Età: ${persona.età}`;
+}
+
+const personaEsempio = {
+    nome: "Alice",
+    cognome: "Rossi",
+    età: "29"
+}
+const risultato = formattaPersona(personaEsempio);
+console.log(risultato);*/
+
+//UTILIZZARE IL CONSOLE.LOG
+
+const numero = 1;
+const stringa = "HELLO WORD!";
+const ogetto = {
+    nome: "Bob",
+    cognome: "Rossi",
+    età: 30,
+    città: "Napoli"
+}
+const array = ["Alice", "Bob", 30];
+console.log(numero);
+console.log(stringa);
+console.log(ogetto);
+console.log(array);
+
