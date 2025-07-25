@@ -52,7 +52,7 @@ console.log(ogetto.attivac);*/
 
 //MANIPOLAZIONE DI DATI JSON
 
-const utentiJSON = `[
+/*const utentiJSON = `[
     {"nome": "Alice", "età": 25},
     {"nome": "Bob", "età": 30},
     {"nome": "Giovani", "età": 40}
@@ -65,4 +65,29 @@ utenti.push(nuovoUtente);
 
 const utentiAggiornatiJSON = JSON.stringify(utenti, null, 2);
 
-console.log(utentiAggiornatiJSON);
+console.log(utentiAggiornatiJSON);*/
+
+//STRINGA SEMPLICE CON TEMPLATE LITERALS
+
+/*let nome = "Alice";
+let cognome = "Rossi";
+let testo = "Hello word !";
+let testo2 = `Hello ${nome} ${cognome}!`;
+console.log(testo2);*/
+
+//STRINGA MULTILINEA CON TEMPLATE LITERALS
+
+let nome = "Bob";
+let cognome = "Rossi";
+let età = "35";
+let città = "Napoli";
+
+// Creazione della stringa multilinea con template literals
+
+let descrizione = `informazioni personali:
+nome: ${nome}
+cognome:${cognome}
+età:${età} anni
+città:${città}
+`
+console.log(descrizione);
