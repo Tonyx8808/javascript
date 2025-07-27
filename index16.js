@@ -136,7 +136,7 @@ if (miaVariabile === 5) {
 
 //CONSOLE.TABLE & CONSOLE.GROUP
 
-const persone = [
+/*const persone = [
 {nome:"Alice", cognome: "Rossi", età:"25"},
 {nome:"Bob", cognome: "Verdi", età:"39"},
 {nome:"Pippo", cognome: "Pallino", età:"18"}    
@@ -149,4 +149,28 @@ console.log("NUMERO DI PERSONE", persone.length);
 
 console.groupEnd();
 
-console.log("MESSAGGIO FUORI DAL GRUPPO");
+console.log("MESSAGGIO FUORI DAL GRUPPO");*/
+
+//SET TIMEOUT
+
+/*setTimeout(() => {
+    console.log("QUESTO MESSAGGIO VIENE VISUALIZZATO OGNI 3 SECONDI");
+}, 3000);
+
+//SETINTERVAL
+
+setInterval(() => {
+console.log("QUESTO MESSAGGIO VIENE VISUALIZZATO OGNI 2 SECONDI");
+}, 2000);*/
+
+//INTERRUZIONE DI SET INTERVAL
+
+function stampaMessaggio(){
+    console.log("sono passati 1 sec");
+}
+
+const intervalId = setInterval (stampaMessaggio, 1000);
+setTimeout(() => {
+clearInterval(intervalId);
+console.log("INTERVALLO INTERROTTO OGNI 5 SEC");
+}, 5000);
