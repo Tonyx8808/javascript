@@ -193,7 +193,7 @@ divide(10, 0);*/
 
     //GESTIONE DI PIU' ERRORI
 
-    function processString(input) {
+    /*function processString(input) {
         try{
             if( typeof input !== "string") {
                 console.error("ERRORE: l'input deve essere una stringa");
@@ -214,4 +214,23 @@ divide(10, 0);*/
 
 processString("HELLO WORD!");
 processString(10, 59, 254);    
-processString("ERROR");
+processString("ERROR");*/
+
+//USO DI FINALLY PER ESEGUIRE CODICE INDIPENDENTEMENTE DAL RISULTATO
+function processOperation(input) {
+    try {
+        if (typeof input !== "number") {
+            console.error("Errore: l'input deve essere un numero");
+            return;
+        }
+        const result = input * input;
+        console.log("Il risultato dell'operazione è:", result);
+    } catch (error) {
+        console.error("Si è verificato un errore:", error.message);
+    } finally {
+        console.log("Operazione completata.");
+    }
+}
+
+processOperation(100);
+processOperation("non è un numero");
