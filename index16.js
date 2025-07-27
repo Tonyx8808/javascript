@@ -165,7 +165,7 @@ console.log("QUESTO MESSAGGIO VIENE VISUALIZZATO OGNI 2 SECONDI");
 
 //INTERRUZIONE DI SET INTERVAL
 
-function stampaMessaggio(){
+/*function stampaMessaggio(){
     console.log("sono passati 1 sec");
 }
 
@@ -173,4 +173,21 @@ const intervalId = setInterval (stampaMessaggio, 1000);
 setTimeout(() => {
 clearInterval(intervalId);
 console.log("INTERVALLO INTERROTTO OGNI 5 SEC");
-}, 5000);
+}, 5000);*/
+
+//GESTIONE DI UN ERRORE SEMPLICE
+
+function divide(a, b) {
+    try {
+        if (b === 0) {
+            console.error("ERRORE: divisione per zero non consentita");
+            return;
+        }
+        console.log("il risultato della divisione è:", a / b);
+    } catch(error) {
+        console.error("si è verificato un errore", error);
+    }
+}
+divide(10, 2);
+divide(10, 0);
+    
