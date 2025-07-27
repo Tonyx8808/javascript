@@ -177,7 +177,7 @@ console.log("INTERVALLO INTERROTTO OGNI 5 SEC");
 
 //GESTIONE DI UN ERRORE SEMPLICE
 
-function divide(a, b) {
+/*function divide(a, b) {
     try {
         if (b === 0) {
             console.error("ERRORE: divisione per zero non consentita");
@@ -189,5 +189,29 @@ function divide(a, b) {
     }
 }
 divide(10, 2);
-divide(10, 0);
-    
+divide(10, 0);*/
+
+    //GESTIONE DI PIU' ERRORI
+
+    function processString(input) {
+        try{
+            if( typeof input !== "string") {
+                console.error("ERRORE: l'input deve essere una stringa");
+                return;
+            }
+            const result = input.toUpperCase();
+            console.log("stringa elaborata", result);
+
+            if(input === "error") {
+                console.error("ERRORE: si è verificato un errore durante l'elaborazione");
+                return;
+            }
+        } catch (error) {
+            console.error("ERRORE GENERICO", error.message);
+        }
+    }
+
+
+processString("HELLO WORD!");
+processString(10, 59, 254);    
+processString("ERROR");
