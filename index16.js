@@ -217,7 +217,7 @@ processString(10, 59, 254);
 processString("ERROR");*/
 
 //USO DI FINALLY PER ESEGUIRE CODICE INDIPENDENTEMENTE DAL RISULTATO
-function processOperation(input) {
+/*function processOperation(input) {
     try {
         if (typeof input !== "number") {
             console.error("Errore: l'input deve essere un numero");
@@ -233,4 +233,35 @@ function processOperation(input) {
 }
 
 processOperation(100);
-processOperation("non è un numero");
+processOperation("non è un numero");*/
+
+//CALLBACK esempio
+
+/*function funzionePrincipale(valore1, valore2, valore3, callback) {
+    callback(valore1, valore2, valore3)
+}
+
+funzionePrincipale(10, 25, 56, function(val1, val2, val3) {
+    console.log("Valori ricevuti dal callback:", val1, val2, val3);
+});*/
+
+//FUNZIONE DI BASE CON CALLBACK
+
+function eseguiOperazioni(a, b, c, callback){
+    let risultato = a + b + c;
+    console.log("IL RISULTATO DELL'OPERAZIONE E':" + risultato);
+    callback(); //eseguo il callback
+}
+
+//ora devo creare una funzione che mi definisce il mio callback
+
+function mycallback(){
+console.log("IL CALLBACK E' STATO ESEGUITO");
+}
+
+//ora si deve chiamare la funzione dei numeri e il callback
+
+eseguiOperazioni(13, 25, 49, mycallback);
+
+
+
