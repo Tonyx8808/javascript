@@ -291,7 +291,7 @@ operazioneChiamataCallback(15, 68, 21, mycallback);*/
 //creo la prima funzione
 
 // Prima funzione che esegue un'operazione e chiama un callback
-function firstOperation(num1, num2, callback) {
+/*function firstOperation(num1, num2, callback) {
     let result = num1 + num2;
     console.log("Risultato della prima operazione:", result);
     callback(result);
@@ -316,4 +316,18 @@ function finalCallback(result) {
 // Esecuzione delle operazioni in sequenza
 firstOperation(15, 80, function(result) {
     secondOperation(result, finalCallback);
+});*/
+
+//CREARE UNA PROMESSA SEMPLICE
+
+function createPromise() {
+    return new Promise((resolve) => {
+        // Simulazione di una operazione asincrona
+        setTimeout(() => {
+            resolve("Promessa risolta!");
+        }, 2000);
+    });
+}
+createPromise().then((message) =>{
+    console.log(message);
 });
