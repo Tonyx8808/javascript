@@ -247,7 +247,7 @@ funzionePrincipale(10, 25, 56, function(val1, val2, val3) {
 
 //FUNZIONE DI BASE CON CALLBACK
 
-function eseguiOperazioni(a, b, c, callback){
+/*function eseguiOperazioni(a, b, c, callback){
     let risultato = a + b + c;
     console.log("IL RISULTATO DELL'OPERAZIONE E':" + risultato);
     callback(); //eseguo il callback
@@ -261,7 +261,59 @@ console.log("IL CALLBACK E' STATO ESEGUITO");
 
 //ora si deve chiamare la funzione dei numeri e il callback
 
-eseguiOperazioni(13, 25, 49, mycallback);
+eseguiOperazioni(13, 25, 49, mycallback);*/
 
+//FUNZIONE CON CALLBACK E PASSAGGIO DI PARAMETRI
 
+//definizione di una funzione che accetta il callback e numeri
 
+/*function operazioneChiamataCallback(num1, num2, num3, callback) {
+    let risultato = num1 + num2 + num3;
+
+//chiama il callback con il risultato dell'operazione
+
+callback(risultato);
+
+}
+
+//definisco la funzione di callback
+
+function mycallback(risultato){
+    console.log("IL RISULTATO DELL'OPERAZIONE E':", risultato);
+}
+
+//ora chiamo la funzione principale inserendo numeri e il callback
+
+operazioneChiamataCallback(15, 68, 21, mycallback);*/
+
+//CALLBACK ANNIDATO
+
+//creo la prima funzione
+
+// Prima funzione che esegue un'operazione e chiama un callback
+function firstOperation(num1, num2, callback) {
+    let result = num1 + num2;
+    console.log("Risultato della prima operazione:", result);
+    callback(result);
+}
+
+// Seconda funzione che funge da callback per la prima funzione
+function secondOperation(resultFirstOperation, callback) {
+    let finalResult = resultFirstOperation * 2;
+    console.log("Risultato della seconda operazione:", finalResult);
+
+    // Chiamare il callback finale, se necessario
+    if (callback) {
+        callback(finalResult);
+    }
+}
+
+// Funzione di callback finale
+function finalCallback(result) {
+    console.log("Tutte le operazioni sono state completate. Risultato finale:", result);
+}
+
+// Esecuzione delle operazioni in sequenza
+firstOperation(15, 80, function(result) {
+    secondOperation(result, finalCallback);
+});
