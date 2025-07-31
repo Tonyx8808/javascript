@@ -320,7 +320,7 @@ firstOperation(15, 80, function(result) {
 
 //CREARE UNA PROMESSA SEMPLICE
 
-function createPromise() {
+/*function createPromise() {
     return new Promise((resolve) => {
         // Simulazione di una operazione asincrona
         setTimeout(() => {
@@ -330,4 +330,29 @@ function createPromise() {
 }
 createPromise().then((message) =>{
     console.log(message);
-});
+});*/
+
+//GESTIONE DI UNA PROMESSA CON CATCH
+
+function createPromise() {
+    return new Promise((resolve, reject) => {
+        // Simulazione di una operazione asincrona
+        setTimeout(() => {
+            const shouldReject = true; // Cambia questo valore a false per vedere la Promise risolta
+
+            if (shouldReject) {
+                reject(new Error("Qualcosa è andato storto!"));
+            } else {
+                resolve("Promessa risolta!");
+            }
+        }, 2000);
+    });
+}
+
+createPromise()
+    .then((message) => {
+        console.log(message);
+    })
+    .catch((error) => {
+        console.error("Errore catturato:", error.message);
+    });
