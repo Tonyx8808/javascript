@@ -360,7 +360,7 @@ createPromise()
     //CRERE UNA PROMESSA CON FINALLY
 
 // Funzione che simula la cottura di una pizza
-function cuociPizza() {
+/*function cuociPizza() {
     return new Promise((resolve, reject) => {
         // Simulazione del tempo di cottura
         setTimeout(() => {
@@ -385,4 +385,49 @@ cuociPizza()
     })
     .finally(() => {
         console.log("Operazione di cottura completata."); // Questo verrà eseguito in entrambi i casi
-    });
+    });*/
+
+    //CATENA DI PROMESSE SEMPLICI
+
+//funzione che di preparazione agli ingredienti
+
+    function preparaIngredienti() {
+        return new Promise ((resolve) => {
+            setTimeout(() => {
+                console.log("INGREDIENTI PREPARATI.");
+                resolve();
+            }, 1000);
+        })
+    }
+
+    //funzione cottura della pizza
+
+    function cotturaPizza() {
+        return new Promise ((resolve) => {
+            setTimeout(() => {
+                console.log("PIZZA COTTA");
+                resolve();
+            }, 3000);
+        })
+    }
+
+    //funzione del servizio della pizza
+
+    function pizzaServita() {
+        return new Promise ((resolve) => {
+            setTimeout(() => {
+                console.log("PIZZA SERVITA");
+                resolve();
+            }, 2000);
+        })
+    }
+    //incatenazione delle promesse
+preparaIngredienti()
+.then(() => cotturaPizza())
+.then(() => pizzaServita())
+.then(() => {
+    console.log("TUTTE LE PIZZE SONO STATE COMPLETATE!");
+})
+.catch((errore) => {
+    console.error("LE PIZZE SONO BRUCIATE", errore);
+});
