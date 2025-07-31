@@ -334,7 +334,7 @@ createPromise().then((message) =>{
 
 //GESTIONE DI UNA PROMESSA CON CATCH
 
-function createPromise() {
+/*function createPromise() {
     return new Promise((resolve, reject) => {
         // Simulazione di una operazione asincrona
         setTimeout(() => {
@@ -355,4 +355,34 @@ createPromise()
     })
     .catch((error) => {
         console.error("Errore catturato:", error.message);
+    });*/
+
+    //CRERE UNA PROMESSA CON FINALLY
+
+// Funzione che simula la cottura di una pizza
+function cuociPizza() {
+    return new Promise((resolve, reject) => {
+        // Simulazione del tempo di cottura
+        setTimeout(() => {
+            const pizzaCotta = true; // Cambia questo valore per simulare un successo o un fallimento
+
+            if (pizzaCotta) {
+                resolve("La pizza è pronta!");
+            } else {
+                reject(new Error("La pizza si è bruciata."));
+            }
+        }, 1000); // Simula un ritardo di 1 secondo
+    });
+}
+
+// Utilizzo della Promise
+cuociPizza()
+    .then((messaggio) => {
+        console.log(messaggio); // Questo verrà eseguito se la pizza è cotta con successo
+    })
+    .catch((errore) => {
+        console.error(errore.message); // Questo verrà eseguito se la pizza si brucia
+    })
+    .finally(() => {
+        console.log("Operazione di cottura completata."); // Questo verrà eseguito in entrambi i casi
     });
