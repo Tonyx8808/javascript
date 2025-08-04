@@ -434,13 +434,13 @@ preparaIngredienti()
 
 //CATENA DI PROMESSE CON GESTIONI DI ERRORI
 
-// Funzione che restituisce una promessa
-function getRandomPromise() {
+
+/*function getRandomPromise() {
   return new Promise((resolve, reject) => {
-    // Genera un valore casuale tra 0 e 1
+    
     const randomValue = Math.random();
 
-    // Se il valore è maggiore di 0.5, la promessa si risolve, altrimenti viene rifiutata
+    
     if (randomValue > 0.5) {
       resolve(randomValue);
     } else {
@@ -449,16 +449,16 @@ function getRandomPromise() {
   });
 }
 
-// Catena di promesse
+
 getRandomPromise()
   .then((result) => {
     console.log("Promessa risolta con valore:", result);
-    // Moltiplichiamo il risultato per 10
+   
     return result * 10;
   })
   .then((newResult) => {
     console.log("Nuovo risultato dopo la moltiplicazione:", newResult);
-    // Aggiungiamo 5 al nuovo risultato
+    
     return newResult + 5;
   })
   .then((finalResult) => {
@@ -466,4 +466,17 @@ getRandomPromise()
   })
   .catch((error) => {
     console.error("Errore:", error.message);
-  });
+  });*/
+
+  //GESTIONE DEGLI ERRORI CON CATCH
+
+    function rejectPromise(){
+        return new Promise((resolve, reject) =>{
+            reject(new Error("SI E' VERIFICATO UN ERRORE DURANTE L'ELABORAZIONE!"));
+        })
+    }
+
+    rejectPromise()
+    .catch((errore) =>{
+        console.error("Errore gestito", errore.message);
+    });
