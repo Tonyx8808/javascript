@@ -177,19 +177,19 @@ console.log("INTERVALLO INTERROTTO OGNI 5 SEC");
 
 //GESTIONE DI UN ERRORE SEMPLICE
 
-/*function divide(a, b) {
+function divide(a, b) {
     try {
         if (b === 0) {
-            console.error("ERRORE: divisione per zero non consentita");
-            return;
+            throw new Error("divisione con zero  non è possibile")
+           
         }
         console.log("il risultato della divisione è:", a / b);
     } catch(error) {
-        console.error("si è verificato un errore", error);
+        console.error("si è verificato un errore", error.message);
     }
 }
 divide(10, 2);
-divide(10, 0);*/
+divide(10, 0);
 
     //GESTIONE DI PIU' ERRORI
 
@@ -391,7 +391,7 @@ cuociPizza()
 
 //funzione che di preparazione agli ingredienti
 
-    function preparaIngredienti() {
+    /*function preparaIngredienti() {
         return new Promise ((resolve) => {
             setTimeout(() => {
                 console.log("INGREDIENTI PREPARATI.");
@@ -430,4 +430,5 @@ preparaIngredienti()
 })
 .catch((errore) => {
     console.error("LE PIZZE SONO BRUCIATE", errore);
-});
+});*/
+
