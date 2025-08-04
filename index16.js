@@ -177,7 +177,7 @@ console.log("INTERVALLO INTERROTTO OGNI 5 SEC");
 
 //GESTIONE DI UN ERRORE SEMPLICE
 
-function divide(a, b) {
+/*function divide(a, b) {
     try {
         if (b === 0) {
             throw new Error("divisione con zero  non è possibile")
@@ -189,7 +189,7 @@ function divide(a, b) {
     }
 }
 divide(10, 2);
-divide(10, 0);
+divide(10, 0);*/
 
     //GESTIONE DI PIU' ERRORI
 
@@ -432,3 +432,38 @@ preparaIngredienti()
     console.error("LE PIZZE SONO BRUCIATE", errore);
 });*/
 
+//CATENA DI PROMESSE CON GESTIONI DI ERRORI
+
+// Funzione che restituisce una promessa
+function getRandomPromise() {
+  return new Promise((resolve, reject) => {
+    // Genera un valore casuale tra 0 e 1
+    const randomValue = Math.random();
+
+    // Se il valore è maggiore di 0.5, la promessa si risolve, altrimenti viene rifiutata
+    if (randomValue > 0.5) {
+      resolve(randomValue);
+    } else {
+      reject(new Error("Il valore è troppo basso"));
+    }
+  });
+}
+
+// Catena di promesse
+getRandomPromise()
+  .then((result) => {
+    console.log("Promessa risolta con valore:", result);
+    // Moltiplichiamo il risultato per 10
+    return result * 10;
+  })
+  .then((newResult) => {
+    console.log("Nuovo risultato dopo la moltiplicazione:", newResult);
+    // Aggiungiamo 5 al nuovo risultato
+    return newResult + 5;
+  })
+  .then((finalResult) => {
+    console.log("Risultato finale:", finalResult);
+  })
+  .catch((error) => {
+    console.error("Errore:", error.message);
+  });
