@@ -470,7 +470,7 @@ getRandomPromise()
 
   //GESTIONE DEGLI ERRORI CON CATCH
 
-    function rejectPromise(){
+    /*function rejectPromise(){
         return new Promise((resolve, reject) =>{
             reject(new Error("SI E' VERIFICATO UN ERRORE DURANTE L'ELABORAZIONE!"));
         })
@@ -479,4 +479,40 @@ getRandomPromise()
     rejectPromise()
     .catch((errore) =>{
         console.error("Errore gestito", errore.message);
+    });*/
+
+    //GESTIONE DEGLI ERRORI CON THEN E CATCH
+
+   function promessaCasuale() {
+    return new Promise((resolve, reject) => {
+        const successo = Math.random() > 0.5;
+        if (successo) {
+            resolve("✅ Dati ottenuti con successo!");
+        } else {
+            reject(new Error("❌ Errore di rete: impossibile recuperare i dati."));
+        }
+    });
+}
+
+// Catena con .then() e .catch()
+promessaCasuale()
+    .then(
+        // Primo .then: gestisce il successo
+        (risultato) => {
+            console.log("Successo 1:", risultato);
+            return risultato + " → Elaborazione in corso...";
+        }
+        // Opzionale: secondo argomento di .then() per gestire errore locale
+        // (raro, meglio usare .catch())
+    )
+    .then((risultatoElaborato) => {
+        console.log("Successo 2:", risultatoElaborato);
+        return risultatoElaborato + " ✅ Completato.";
+    })
+    .catch((errore) => {
+        // Gestisce TUTTI gli errori non gestiti nei .then() precedenti
+        console.error("Errore gestito da .catch():", errore.message);
+    })
+    .finally(() => {
+        console.log("⏹️  Operazione terminata (successo o errore).");
     });
