@@ -483,13 +483,13 @@ getRandomPromise()
 
     //GESTIONE DEGLI ERRORI CON THEN E CATCH
 
-   function promessaCasuale() {
+   /*function promessaCasuale() {
     return new Promise((resolve, reject) => {
         const successo = Math.random() > 0.5;
         if (successo) {
-            resolve("✅ Dati ottenuti con successo!");
+            resolve("Dati ottenuti con successo!");
         } else {
-            reject(new Error("❌ Errore di rete: impossibile recuperare i dati."));
+            reject(new Error("Errore di rete: impossibile recuperare i dati."));
         }
     });
 }
@@ -497,22 +497,62 @@ getRandomPromise()
 // Catena con .then() e .catch()
 promessaCasuale()
     .then(
-        // Primo .then: gestisce il successo
+        
         (risultato) => {
             console.log("Successo 1:", risultato);
             return risultato + " → Elaborazione in corso...";
         }
-        // Opzionale: secondo argomento di .then() per gestire errore locale
-        // (raro, meglio usare .catch())
+        
     )
     .then((risultatoElaborato) => {
         console.log("Successo 2:", risultatoElaborato);
-        return risultatoElaborato + " ✅ Completato.";
+        return risultatoElaborato + "Completato.";
     })
     .catch((errore) => {
-        // Gestisce TUTTI gli errori non gestiti nei .then() precedenti
+        
         console.error("Errore gestito da .catch():", errore.message);
     })
     .finally(() => {
-        console.log("⏹️  Operazione terminata (successo o errore).");
-    });
+        console.log(" Operazione terminata (successo o errore).");
+    });*/
+
+    //GESTIONE IN UNA CATENA DI PROMESSE
+
+// Funzione che restituisce una promessa casuale (risolta o rifiutata)
+function promessaCasuale(id) {
+  return new Promise((resolve, reject) => {
+    // Genera un numero casuale tra 0 e 1
+    const success = Math.random() > 0.5; // 50% di probabilità di successo
+
+    setTimeout(() => {
+      if (success) {
+        console.log(`✅ Promessa ${id} risolta con successo!`);
+        resolve(`Risultato ${id}`);
+      } else {
+        console.log(`❌ Promessa ${id} rifiutata!`);
+        reject(new Error(`Errore nella promessa ${id}`));
+      }
+    }, 1000); // Simula un ritardo di 1 secondo
+  });
+}
+
+// Catena di promesse
+promessaCasuale(1)
+  .then((risultato1) => {
+    console.log("Passo 1 completato:", risultato1);
+    return promessaCasuale(2);
+  })
+  .then((risultato2) => {
+    console.log("Passo 2 completato:", risultato2);
+    return promessaCasuale(3);
+  })
+  .then((risultato3) => {
+    console.log("Passo 3 completato:", risultato3);
+    return "Catena completata con successo!";
+  })
+  .then((messaggioFinale) => {
+    console.log(messaggioFinale);
+  })
+  .catch((errore) => {
+    console.error("🚨 Errore catturato nella catena:", errore.message);
+  });
