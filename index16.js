@@ -519,17 +519,17 @@ promessaCasuale()
     //GESTIONE IN UNA CATENA DI PROMESSE
 
 // Funzione che restituisce una promessa casuale (risolta o rifiutata)
-function promessaCasuale(id) {
+/*function promessaCasuale(id) {
   return new Promise((resolve, reject) => {
     // Genera un numero casuale tra 0 e 1
     const success = Math.random() > 0.5; // 50% di probabilità di successo
 
     setTimeout(() => {
       if (success) {
-        console.log(`✅ Promessa ${id} risolta con successo!`);
+        console.log(`Promessa ${id} risolta con successo!`);
         resolve(`Risultato ${id}`);
       } else {
-        console.log(`❌ Promessa ${id} rifiutata!`);
+        console.log(`Promessa ${id} rifiutata!`);
         reject(new Error(`Errore nella promessa ${id}`));
       }
     }, 1000); // Simula un ritardo di 1 secondo
@@ -555,4 +555,33 @@ promessaCasuale(1)
   })
   .catch((errore) => {
     console.error("🚨 Errore catturato nella catena:", errore.message);
-  });
+  });*/
+
+  //UTILIZZARE PROMISE.ALL
+
+  function primaFunzione() {
+    return new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve ("Prima funzione si completa in 3 secondi")
+        }, 3000);
+    })
+  }
+
+  function secondaFunzione() {
+    return new Promise((resolve) => {
+        setTimeout(()=>{
+            resolve ("Seconda funzione si completa in 5 secondi")
+        }, 5000);
+    })
+  }
+
+  //utilizzo di Promise.all che mi esegue le due funzioni in modo parallelo
+
+  Promise.all([primaFunzione(), secondaFunzione()])
+.then((risultati) => {
+    console.log("Entrambe le funzioni sono state risolte!");
+    console.log("Risultati", risultati);
+})
+.catch((errore) => {
+    console.error("Una delle promesse è fallita", errore);
+});
