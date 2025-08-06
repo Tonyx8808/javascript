@@ -191,9 +191,9 @@ console.log("INTERVALLO INTERROTTO OGNI 5 SEC");
 divide(10, 2);
 divide(10, 0);*/
 
-    //GESTIONE DI PIU' ERRORI
+//GESTIONE DI PIU' ERRORI
 
-    /*function processString(input) {
+/*function processString(input) {
         try{
             if( typeof input !== "string") {
                 console.error("ERRORE: l'input deve essere una stringa");
@@ -357,7 +357,7 @@ createPromise()
         console.error("Errore catturato:", error.message);
     });*/
 
-    //CRERE UNA PROMESSA CON FINALLY
+//CRERE UNA PROMESSA CON FINALLY
 
 // Funzione che simula la cottura di una pizza
 /*function cuociPizza() {
@@ -387,11 +387,11 @@ cuociPizza()
         console.log("Operazione di cottura completata."); // Questo verrà eseguito in entrambi i casi
     });*/
 
-    //CATENA DI PROMESSE SEMPLICI
+//CATENA DI PROMESSE SEMPLICI
 
 //funzione che di preparazione agli ingredienti
 
-    /*function preparaIngredienti() {
+/*function preparaIngredienti() {
         return new Promise ((resolve) => {
             setTimeout(() => {
                 console.log("INGREDIENTI PREPARATI.");
@@ -434,7 +434,6 @@ preparaIngredienti()
 
 //CATENA DI PROMESSE CON GESTIONI DI ERRORI
 
-
 /*function getRandomPromise() {
   return new Promise((resolve, reject) => {
     
@@ -468,9 +467,9 @@ getRandomPromise()
     console.error("Errore:", error.message);
   });*/
 
-  //GESTIONE DEGLI ERRORI CON CATCH
+//GESTIONE DEGLI ERRORI CON CATCH
 
-    /*function rejectPromise(){
+/*function rejectPromise(){
         return new Promise((resolve, reject) =>{
             reject(new Error("SI E' VERIFICATO UN ERRORE DURANTE L'ELABORAZIONE!"));
         })
@@ -481,9 +480,9 @@ getRandomPromise()
         console.error("Errore gestito", errore.message);
     });*/
 
-    //GESTIONE DEGLI ERRORI CON THEN E CATCH
+//GESTIONE DEGLI ERRORI CON THEN E CATCH
 
-   /*function promessaCasuale() {
+/*function promessaCasuale() {
     return new Promise((resolve, reject) => {
         const successo = Math.random() > 0.5;
         if (successo) {
@@ -516,7 +515,7 @@ promessaCasuale()
         console.log(" Operazione terminata (successo o errore).");
     });*/
 
-    //GESTIONE IN UNA CATENA DI PROMESSE
+//GESTIONE IN UNA CATENA DI PROMESSE
 
 // Funzione che restituisce una promessa casuale (risolta o rifiutata)
 /*function promessaCasuale(id) {
@@ -557,9 +556,9 @@ promessaCasuale(1)
     console.error("🚨 Errore catturato nella catena:", errore.message);
   });*/
 
-  //UTILIZZARE PROMISE.ALL
+//UTILIZZARE PROMISE.ALL
 
-  /*function primaFunzione() {
+/*function primaFunzione() {
     return new Promise((resolve) => {
         setTimeout(()=>{
             resolve ("Prima funzione si completa in 3 secondi")
@@ -588,7 +587,7 @@ promessaCasuale(1)
 
 //UTILIZZARE PROMISE.RACE
 
-function primaFunzione() {
+/*function primaFunzione() {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve("Prima funzione si completa in 3 secondi");
@@ -605,6 +604,7 @@ function secondaFunzione() {
 }
 
 // Utilizzo di Promise.race
+
 Promise.race([primaFunzione(), secondaFunzione()])
     .then((risultato) => {
         console.log("La prima promessa risolta è:");
@@ -612,4 +612,48 @@ Promise.race([primaFunzione(), secondaFunzione()])
     })
     .catch((errore) => {
         console.error("Una delle promesse è fallita:", errore);
-    });
+    });*/
+
+//UTILIZZARE PROMISE.ALLSETTLED
+
+function primaFunzione() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Prima funzione si completa in 3 secondi");
+    }, 3000);
+  });
+}
+
+function secondaFunzione() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Seconda funzione si completa in 5 secondi");
+    }, 5000);
+  });
+}
+
+function funzioneFallita() {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject("La terza funzione è fallita.");
+    }, 1500);
+  });
+}
+
+Promise.allSettled([
+  primaFunzione(),
+  secondaFunzione(),
+  funzioneFallita(),
+]).then((risultati) => {
+  console.log("Tutte le promesse sono state completate(risolte o rifiutate):");
+  risultati.forEach((risultato, indice) => {
+    if (risultato.status === "fulfilled") {
+      console.log(`Promessa ${indice + 1}: RISOLTA - ${risultato.value}`);
+    } else {
+        console.log(`Promessa ${indice + 1}: RIFIUTATA- ${risultato.reason}`);
+    }
+  });
+})
+.catch((errore) => {
+    console.error("Errore imprevisto in allsettled", errore);
+});
