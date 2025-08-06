@@ -559,7 +559,7 @@ promessaCasuale(1)
 
   //UTILIZZARE PROMISE.ALL
 
-  function primaFunzione() {
+  /*function primaFunzione() {
     return new Promise((resolve) => {
         setTimeout(()=>{
             resolve ("Prima funzione si completa in 3 secondi")
@@ -584,4 +584,32 @@ promessaCasuale(1)
 })
 .catch((errore) => {
     console.error("Una delle promesse è fallita", errore);
-});
+});*/
+
+//UTILIZZARE PROMISE.RACE
+
+function primaFunzione() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Prima funzione si completa in 3 secondi");
+        }, 3000);
+    });
+}
+
+function secondaFunzione() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Seconda funzione si completa in 5 secondi");
+        }, 5000);
+    });
+}
+
+// Utilizzo di Promise.race
+Promise.race([primaFunzione(), secondaFunzione()])
+    .then((risultato) => {
+        console.log("La prima promessa risolta è:");
+        console.log(risultato); // Stampa il valore effettivo della promessa risolta
+    })
+    .catch((errore) => {
+        console.error("Una delle promesse è fallita:", errore);
+    });
