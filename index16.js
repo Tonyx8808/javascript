@@ -616,7 +616,7 @@ Promise.race([primaFunzione(), secondaFunzione()])
 
 //UTILIZZARE PROMISE.ALLSETTLED
 
-function primaFunzione() {
+/*function primaFunzione() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Prima funzione si completa in 3 secondi");
@@ -656,4 +656,19 @@ Promise.allSettled([
 })
 .catch((errore) => {
     console.error("Errore imprevisto in allsettled", errore);
-});
+});*/
+
+//FUNZIONE ASINCRONA SEMPLICE
+
+async function attendiCaricamento() {
+    const promise = new Promise ((resolve) => {
+        setTimeout (() =>{
+            resolve("Il caricamento è avvenuto in 2 secondi!");
+        }, 2000);
+    })
+
+    const messaggio = await promise;
+    console.log(messaggio);
+}
+
+attendiCaricamento();
