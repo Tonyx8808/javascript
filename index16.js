@@ -660,15 +660,66 @@ Promise.allSettled([
 
 //FUNZIONE ASINCRONA SEMPLICE
 
-async function attendiCaricamento() {
+//ho creato una funzione asincrona che attende una promessa
+/*async function attendiCaricamento() {
     const promise = new Promise ((resolve) => {
         setTimeout (() =>{
             resolve("Il caricamento è avvenuto in 2 secondi!");
         }, 2000);
     })
 
+    //Dopo aver creato una funzione che attende una promessa, in questo punto si attende la risoluzione della promessa
     const messaggio = await promise;
+
+    //con questo console.log stampo il messaggio che il caricamento è avvenuto
     console.log(messaggio);
 }
 
-attendiCaricamento();
+attendiCaricamento(); //con attendiCaricamento vado a richiamare la funzione creata prima con (async function attendiCaricamento)
+ SPIEGAZIONE:
+
+ async: dichiaro una funzione asincrona, permettendo l'uso di await;
+ await: ferma l'esecuzione della funzione fino a quando la promessa non viene risolta;
+ setTimeout: simula un'operazione asincrona che richiede del tempo in questo caso 2 secondi.*/
+
+ //GESTIONE DEGLI ERRORI CON TRY E CATCH
+
+ //creo una funzione asincrona che risolve o rifiuta in base al parametro (Success)
+
+ /*async function attendiCaricamento(success) {
+
+    //creo una promessa con il valore (success)
+
+    const promise = new Promise ((resolve, reject) => {
+        setTimeout (() => {
+            if (success) {
+                resolve ("Il caricamento è avvenuto con successo!");
+
+            }else {
+                reject (new Error ("Il caricamento non è avvenuto con successo"));
+            }
+        }, 1200)
+    });
+//Attendo la risoluzione della promessa
+
+    try{
+const result = await promise;
+console.log("SUCCESSO", result);
+    //gestione della promessa se viene rifiutata
+
+       } catch (errore) { 
+        console.log("ERRORE CATTURATO", errore.message);
+    }
+ }
+
+ //ESEMPI DI UTILIZZO:
+
+ //promessa true:
+
+ attendiCaricamento(true);
+
+ //promessa false:
+
+ attendiCaricamento(false);*/
+
+ 
