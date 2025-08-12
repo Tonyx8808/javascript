@@ -722,4 +722,36 @@ console.log("SUCCESSO", result);
 
  attendiCaricamento(false);*/
 
- 
+//FUNZIONI ASINCRONE IN SERIE
+
+async function primaFunzione() {
+    return new Promise ((resolve) =>{
+        setTimeout(() =>{
+            resolve("Risultato della prima funzione")
+        }, 2000);
+    });
+}
+
+async function secondaFunzione() {
+    return new Promise ((resolve) =>{
+        setTimeout(() =>{
+            resolve("Risultato della seconda funzione")
+        }, 3000);
+    });
+}
+
+async function terzaFunzione() {
+    console.log("Inzio esecuzioni delle funzioni in serie ...");
+    try {
+        const risultato1 = await primaFunzione();
+        console.log("PRIMO RISULTATO");
+
+        const risultato2 = await secondaFunzione();
+        console.log("SECONDO RISULTATO");
+        
+        console.log("ENTRAMBE LE FUNZIONI SONO STATE RISOLTE");
+    }catch (errore){
+        console.error("ERRORE DURANTE L'ESECUZIONE", errore);
+    }
+}
+ terzaFunzione();
