@@ -758,7 +758,7 @@ async function terzaFunzione() {
 
  //ESEGUIRE UNA RICHIESTA GET SEMPLICE
 
- async function fetchData() {
+ /*async function fetchData() {
     try{
         console.log("CARICAMENTO DATI IN CORSO ...");
         const response = await fetch ("https://api.restful-api.dev/objects");
@@ -774,4 +774,42 @@ async function terzaFunzione() {
     }
  }
 
- fetchData();
+ fetchData();*/
+
+ //ESEGUIRE UNA RICHIESTA POST
+
+async function creaOggetto() {
+    try {
+        console.log("Invio della richiesta POST...");
+
+        const datiDaInviare = {
+            name: "Smartphone XYZ",
+            data: {
+                year: 2023,
+                price: 699.99,
+                color: "Black",
+                available: true
+            }
+        };
+
+        const response = await fetch('https://api.restful-api.dev/objects', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datiDaInviare)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Errore HTTP: ${response.status} - ${response.statusText}`);
+        }
+
+        const risultato = await response.json();
+        console.log("Oggetto creato con successo:", risultato);
+    } catch (errore) {
+        console.error("Errore durante la richiesta:", errore.message);
+    }
+}
+
+// Esegui la funzione
+creaOggetto();
