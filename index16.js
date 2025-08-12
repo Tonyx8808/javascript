@@ -724,7 +724,7 @@ console.log("SUCCESSO", result);
 
 //FUNZIONI ASINCRONE IN SERIE
 
-async function primaFunzione() {
+/*async function primaFunzione() {
     return new Promise ((resolve) =>{
         setTimeout(() =>{
             resolve("Risultato della prima funzione")
@@ -754,4 +754,24 @@ async function terzaFunzione() {
         console.error("ERRORE DURANTE L'ESECUZIONE", errore);
     }
 }
- terzaFunzione();
+ terzaFunzione();*/
+
+ //ESEGUIRE UNA RICHIESTA GET SEMPLICE
+
+ async function fetchData() {
+    try{
+        console.log("CARICAMENTO DATI IN CORSO ...");
+        const response = await fetch ("https://api.restful-api.dev/objects");
+
+        if (!response.ok){
+            throw new error(`ERRORE HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("DATI RICEVUTI", data);
+    }catch (errore){
+        console.log("ERRORE DURANTE IL CARICAMENTO DATI", errore.message);
+    }
+ }
+
+ fetchData();
