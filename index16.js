@@ -778,7 +778,7 @@ async function terzaFunzione() {
 
  //ESEGUIRE UNA RICHIESTA POST
 
-async function creaOggetto() {
+/*async function creaOggetto() {
     try {
         console.log("Invio della richiesta POST...");
 
@@ -812,4 +812,25 @@ async function creaOggetto() {
 }
 
 // Esegui la funzione
-creaOggetto();
+creaOggetto();*/
+
+//GESTIONE DEGLI ERRORI CON ASYNC E AWAIT
+async function dogImage() {
+  const dogUrl = "https://dog.ceo/api/breeds/image/random"; // 🔴 spazi rimossi
+
+  try {
+    const response = await fetch(dogUrl); // richiesta API
+
+    if (!response.ok) {
+      throw new Error(`Errore HTTP: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("DATI RICEVUTI:", data);
+    console.log("IMMAGINE DI UN CANE:", data.message);
+  } catch (error) {
+    console.error("ERRORE DURANTE IL RECUPERO DELL'IMMAGINE: " + error.message);
+  }
+}
+
+dogImage();
