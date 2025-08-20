@@ -815,7 +815,7 @@ async function terzaFunzione() {
 creaOggetto();*/
 
 //GESTIONE DEGLI ERRORI CON ASYNC E AWAIT
-async function dogImage() {
+/*async function dogImage() {
   const dogUrl = "https://dog.ceo/api/breeds/image/random"; // 🔴 spazi rimossi
 
   try {
@@ -833,4 +833,4 @@ async function dogImage() {
   }
 }
 
-dogImage();
+dogImage();*/
