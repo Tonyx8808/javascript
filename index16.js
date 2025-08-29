@@ -838,7 +838,7 @@ dogImage();*/
 //UTILIZZARE IL LOCALSTORANGE
 
 
-console.log("inizio operazioni con localStorange");
+//console.log("inizio operazioni con localStorange");
 
 //1. Salvo un valore
 
@@ -858,5 +858,30 @@ console.log("inizio operazioni con localStorange");
  //4. Verifica se l'utente è stato rimosso
 
 // const dopoRimozione = localStorage.removeItem("nome");
-// console.log("Dopo rimozione: nome", dopoRimozione); //deve dare come risultato NULL
+// console.log("Dopo rimozione: nome", dopoRimozione); // NULL
+// console.log("operazioni completate");
+
+//UTILIZZARE IL SESSIONSTORANGE
+
+//console.log("inizio operazioni con sessionStorange");
+
+//1. Salvo un valore
+
+ //sessionStorage.setItem("NOME", "Alice");
+//console.log("SALVATO: nome = Alice");
+
+ //2. Recupero il valore
+
+//const nome = sessionStorage.getItem("NOME");
+//console.log("RECUPERATO =", nome);
+
+ //3. Rimuovere il valore
+
+//sessionStorage.removeItem("NOME");
+//console.log("RIMOSSO: nome");
+
+ //4. Verifica se l'utente è stato rimosso
+
+// const dopoRimozione = sessionStorage.removeItem("nome");
+// console.log("Dopo rimozione: nome", dopoRimozione); // NULL
 // console.log("operazioni completate");
