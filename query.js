@@ -1,40 +1,50 @@
-//QUERY SELECTOR
+// QUERY SELECTOR
 
-//seleziono l'Id "TITOLO"
-
+// Seleziona il titolo
 const titolo = document.querySelector("#Titolo");
 
-//selezione del pulsante
-
+// Seleziona il pulsante per cambiare il titolo
 const bottone = document.querySelector("#btn");
 
-//quando si clicca sul bottone, cambia il testo del titolo
-
-bottone.addEventListener("click", function(){
-titolo.textContent = "Titolo cambiato con JS!";
-titolo.style.color = "green";
-    titolo.style.transition = "color 0.3s ease";
+// Quando si clicca sul bottone, cambia il testo del titolo
+bottone.addEventListener("click", function () {
+  titolo.textContent = "Titolo cambiato con JS!";
+  titolo.style.color = "green";
+  titolo.style.transition = "color 0.3s ease";
 });
 
-const p = document.querySelector("#paragrafo");
-const btnLeggi = document.querySelector("#leggi");
+// Seleziona il paragrafo
+const paragrafo = document.querySelector("#paragrafo");
+
+// Seleziona il bottone "Cambia"
 const btnCambia = document.querySelector("#cambia");
 
-//testo visibile
-
+// Unico evento click su btnCambia
 btnCambia.addEventListener("click", () => {
-    alert(p.innerText); //mostra: "Questo è un testo in grassetto"
-});
+  // 1. Mostra il testo attuale del paragrafo (prima di modificarlo)
+  alert("Testo attuale: " + paragrafo.innerText);
 
-//Cambia testo
+  // 2. Modifica il contenuto con innerHTML, aggiungendo un bottone
+  paragrafo.innerHTML = `
+    Questo è un <strong>testo modificato</strong> con un bottone dentro: 
+    <button id="btn-interno" style="margin-left: 10px; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+      Cliccami!
+    </button>
+  `;
 
-btnCambia.addEventListener("click", () => {
-    paragrafo.innerText = "Testo modificato con innerText";
-    paragrafo.style.fontWeight = "bold";
-    paragrafo.style.color = "red";
+  // 3. Cambia lo stile del paragrafo
+  paragrafo.style.backgroundColor = "lightblue";
+  paragrafo.style.fontSize = "30px";
+  paragrafo.style.fontWeight = "bold";
+  paragrafo.style.color = "red";
+  paragrafo.style.padding = "10px";
+  paragrafo.style.borderRadius = "8px";
 
-    //cambio stile del paragrafo
-
-    paragrafo.style.backgroundColor = "blue"; //sfondo blu
-    paragrafo.style.fontSize = "30px"; //testo più grande
+  // 4. Seleziona il bottone appena creato e aggiungi un evento
+  const btnInterno = document.querySelector("#btn-interno");
+  if (btnInterno) { // controllo di sicurezza
+    btnInterno.addEventListener("click", () => {
+      alert("Hai cliccato il bottone dentro il paragrafo!");
+    });
+  }
 });
