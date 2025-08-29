@@ -33,6 +33,33 @@ elementi.forEach(function(item){
     
 });
 
+//aggiungo nuovi elementi alla <ul> già creata
+
+
+ const nuoviElementi = ["sesto", "settimo", "ottavo", "nono", "decimo"];
+ nuoviElementi.forEach(function(item){
+   const li = document.createElement("li");
+    li.textContent = item;
+
+//effetto hover 
+
+li.addEventListener("mouseenter", function(){
+        li.style.color = "tomato";
+        li.style.fontWeight = "bold";
+        li.style.cursor = "pointer";
+        li.style.transition = "color 0.3s ease";
+    });
+
+    li.addEventListener("mouseleave", function(){
+        li.style.color = "blue";
+        li.style.fontWeight = "italic";
+    });
+
+    ul.appendChild(li); //aggiungo il nuovo <li> alla lista esistente
+});
+
+
+
 //aggiungo la <ul> completa all interno di container
 
 container.appendChild(ul);
