@@ -895,8 +895,8 @@ dogImage();*/
 
 //1. Salvo un valore
 
- localStorage.setItem("NOME", "Alice");
- console.log("SALVATO: nome = Alice");
+//localStorage.setItem("NOME", "Alice");
+//console.log("SALVATO: nome = Alice");
 
  //2. Recupero il valore
 
@@ -920,8 +920,8 @@ dogImage();*/
 
 //1. Salvo un valore
 
- sessionStorage.setItem("NOME", "Alice");
-console.log("SALVATO: nome = Alice");
+// sessionStorage.setItem("NOME", "Alice");
+//console.log("SALVATO: nome = Alice");
 
  //2. Recupero il valore
 
@@ -938,3 +938,4 @@ console.log("SALVATO: nome = Alice");
 // const dopoRimozione = sessionStorage.removeItem("nome");
 // console.log("Dopo rimozione: nome", dopoRimozione); // NULL
 // console.log("operazioni completate");
+

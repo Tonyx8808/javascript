@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OGETTO DOCUMENT</title>
+</head>
+<body>
+    <h1 id="titolo">Cliccami</h1>
+    <button id="btn">cambia colore</button>
+    <script>
+        const titolo = document.getElementById("titolo");
+        const bottone = document.getElementById("btn");
+
+        bottone.addEventListener("click", function(){
+            titolo.textContent = "colore cambiato!";
+            titolo.style.color = "green";
+            titolo.style.transition = "color 0.3 ease";
+        });
+    </script>
+</body>
+</html>
