@@ -32,4 +32,9 @@ btnCambia.addEventListener("click", () => {
     paragrafo.innerText = "Testo modificato con innerText";
     paragrafo.style.fontWeight = "bold";
     paragrafo.style.color = "red";
+
+    //cambio stile del paragrafo
+
+    paragrafo.style.backgroundColor = "blue"; //sfondo blu
+    paragrafo.style.fontSize = "30px"; //testo più grande
 });
