@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById</title>
+</head>
+
+<body>
+    <h1 id="titolo">CIAO MONDO! CLICCAMI</h1>
+    <button id="btn">Modifica il titolo</button>
+    <script>
+
+        const titolo = document.getElementById("titolo");
+        const bottone = document.getElementById("btn");
+
+        bottone.addEventListener("click", function () {
+
+            titolo.textContent = "Hai cliccato! Ottimo!";
+            titolo.style.color = "green";
+            titolo.style.transition = "0.3s ease";
+        });
+
+        console.log("Elemento selezionato", titolo);
+        console.log("Testo attuale", titolo.textContent); 
+    </script>
+</body>
+
+</html>
